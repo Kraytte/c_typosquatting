@@ -128,7 +128,7 @@ Ce script :
 1. Lance le serveur Go en tâche de fond
 2. Lance l'application Python avec interface graphique
 
-## 🔮 Perspectives d'évolution
+## Perspectives d'évolution
 
 Voici quelques pistes d’amélioration possibles pour faire évoluer ce projet :
 
