@@ -31,7 +31,7 @@ async def monitor(domain, log_callback):
 
                     suspicious = []
                     for d in domains:
-                        #Vérification si le domaine est similaire à la cible
+                        #Vérification si l'un des domaines est similaire à la cible
                         if is_similar(d, domain):
                             score = abuse_client.check_reputation(d)
                             score_str = f"{d} (Abuse Score: {score})"
