@@ -7,7 +7,7 @@ from core.domain_checker import is_similar
 # Variable de contrôle de l'exécution du monitoring
 running = True
 # Fonction principale asynchrone qui écoute les certificats via websocket
-async def monitor(domain, log_callback):
+async def monitor(domain, log_callback, threshold):
     global running
     logger = Logger(print_logs=True)
     abuse_client = AbuseIPDBClient()
@@ -32,7 +32,7 @@ async def monitor(domain, log_callback):
                     suspicious = []
                     for d in domains:
                         #Vérification si l'un des domaines est similaire à la cible
-                        if is_similar(d, domain):
+                        if is_similar(d, domain, threshold):
                             score = abuse_client.check_reputation(d)
                             score_str = f"{d} (Abuse Score: {score})"
                             suspicious.append(score_str)
@@ -49,10 +49,10 @@ async def monitor(domain, log_callback):
     except Exception as e:
         log_callback(f"[ERROR] Connection to websocket failed: {str(e)}")
 #Fonction pour démarrer le monitoring
-def start_monitoring(domain, log_callback):
+def start_monitoring(domain, log_callback, threshold):
     global running
     running = True
-    asyncio.run(monitor(domain, log_callback))
+    asyncio.run(monitor(domain, log_callback,threshold))
 #Fonction pour stopper le monitoring
 def stop_monitoring():
     global running

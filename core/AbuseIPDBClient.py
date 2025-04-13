@@ -36,5 +36,5 @@ class AbuseIPDBClient:
         except Exception as e:
             #Affichage pour d'autres types d'erreurs (comme l'API non disponible)
             print(f"[ERROR] Exception during AbuseIPDB check: {e}")
-        return None
+        return 0
 

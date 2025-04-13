@@ -15,6 +15,11 @@ class MonitorApp:
         ttk.Label(self.frame, text="Nom de domaine à surveiller:").pack(anchor="w")
         self.domain_entry = ttk.Entry(self.frame, width=50)
         self.domain_entry.pack(fill="x", pady=5)
+        #Champ pour définir le seuil de similarité requis
+        ttk.Label(self.frame, text="Seuil de similarité (0.0 à 1.0):").pack(anchor="w")
+        self.threshold_entry = ttk.Entry(self.frame, width=10)
+        self.threshold_entry.insert(0, "0.8")  # valeur par défaut raisonnable
+        self.threshold_entry.pack(pady=5, anchor="w")
         #Bouton pour lancer le monitoring
         self.start_button = ttk.Button(self.frame, text="Démarrer la surveillance", command=self.start)
         self.start_button.pack(pady=(10, 5))
@@ -38,7 +43,14 @@ class MonitorApp:
             self.monitoring = True
             self.start_button.config(state=tk.DISABLED)
             self.stop_button.config(state=tk.NORMAL)
-            self.thread = threading.Thread(target=start_monitoring, args=(domain, self.log_callback))
+            try:
+                threshold = float(self.threshold_entry.get())
+                if not (0.0 <= threshold <= 1.0):
+                    raise ValueError
+            except ValueError:
+                self.log_callback("[ERREUR] Le seuil doit être un nombre entre 0.0 et 1.0")
+                return
+            self.thread = threading.Thread(target=start_monitoring, args=(domain, self.log_callback, threshold))
             self.thread.daemon = True
             self.thread.start()
     #Fonction d'arrêt de la surveillance
