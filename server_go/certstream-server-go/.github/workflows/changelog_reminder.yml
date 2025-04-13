@@ -1,0 +1,17 @@
+name: Changelog Reminder
+on: pull_request
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  remind:
+    name: Changelog Reminder
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Changelog Reminder
+        uses: mskelton/changelog-reminder-action@v3
+        with:
+          message: "@${{ github.actor }} We couldn't find any modification to the CHANGELOG.md file. If your changes are not suitable for the changelog, that's fine. Otherwise please add them to the changelog!"
