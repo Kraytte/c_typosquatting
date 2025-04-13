@@ -1,4 +1,4 @@
-# Entry point for the monitoring tool
+# Fonction de lancement de l'application
 from gui.interface import run_gui
 
 if __name__ == '__main__':

@@ -9,7 +9,7 @@ def levenshtein_ratio(a, b):
     """
     return SequenceMatcher(None, a, b).ratio()
 
-def is_similar(domain, target, threshold=0.75):
+def is_similar(domain, target, threshold=0.85):
     """
     Détermine si un domaine est similaire à un domaine cible en utilisant un seuil.
     
