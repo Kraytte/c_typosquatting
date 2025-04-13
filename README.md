@@ -104,7 +104,7 @@ project_root/
 Créez un fichier `.env` à la racine du projet avec votre clé API :
 
 ```
-ABUSE_API_KEY=VOTRE_CLÉ_ABUSEIPDB_ICI
+ABUSEIPDB_API_KEY=VOTRE_CLÉ_ABUSEIPDB_ICI
 ```
 
 ---
