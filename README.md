@@ -17,8 +17,8 @@ Il utilise :
 #### Installation
 
 - **Windows :**
-  1. Téléchargez l'installateur sur [https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/)
-  2. Exécutez l'installateur avec l'option "Add Python to PATH" cochée
+  1. Téléchargez le fichier d'installation sur [https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/)
+  2. Exécutez le avec l'option "Add Python to PATH" cochée
 
 - **Linux :**
   ```bash
@@ -31,7 +31,7 @@ Il utilise :
 #### Installation
 
 - **Windows :**
-  1. Téléchargez l’installateur sur [https://golang.org/dl/](https://golang.org/dl/)
+  1. Téléchargez le fichier d'installation  sur [https://golang.org/dl/](https://golang.org/dl/)
   2. Installez et vérifiez avec :
      ```bash
      go version
