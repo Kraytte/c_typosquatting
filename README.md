@@ -101,7 +101,7 @@ project_root/
 
 ## Configuration
 
-Créez un fichier `.env` à la racine du projet avec votre clé API :
+Créez un fichier `.env` à la racine du projet avec votre clé API (à obtenir en créant un compte sur https://www.abuseipdb.com/):
 
 ```
 ABUSEIPDB_API_KEY=VOTRE_CLÉ_ABUSEIPDB_ICI
